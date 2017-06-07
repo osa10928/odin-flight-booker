@@ -1,0 +1,17 @@
+<h2>Book Your Flight</h2>
+
+<%= form_for @booking, url: booking_path do |f| %>
+
+	<%= f.radio_button :flight_id, @flight.id %>
+	<%= f.label :booking, "From #{@flight.start.name} to #{@flight.finish.name} - #{@flight.start_time} - #{@passengers} passengers" %></br>
+
+<p>Passenger Information</p>
+
+	<%= f.fields_for :passengers do |passenger_form| %>
+		Passenger Email: <%= passenger_form.text_field :email %></br>
+   		Passenger Name: <%= passenger_form.text_field :name %></br></br></br>
+    <% end %>
+
+    <%= f.submit "Confirm Flight Booking" %>
+
+<% end %>

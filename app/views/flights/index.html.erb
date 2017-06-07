@@ -1,0 +1,36 @@
+
+<form>
+<%= form_for @flight, url: root_path, method: :get  do |f| %>
+	<%= f.label "Departing Airport"%>
+	<%= f.select(:start_id, @airport_options, :selected => @start)%></br>
+
+	<%= f.label "Arriving Airport" %>
+	<%= f.select(:finish_id, @airport_options, :selected => @destination) %></br>
+
+	<% if params[:flight] %>
+		<%= f.label "Date and Time of flight" %>
+		<%= f.select(:start_time, @datetime_options, :selected => @start_time) %></br>
+
+		<%= f.label "Number of Passengers" %>
+		<%= f.select(:passengers, @passenger_options, :selected => @passengers) %></br>
+	<% end %>
+
+	<%= f.submit "Search for flight" %>
+<% end %>
+</br></br>
+
+<% if params[:flight] && params[:flight][:start_time] %>
+	<%= form_for @flight, url: booking_path, method: :get do |f| %>
+ 		<% @possible_flights.each do |flights| %>
+
+ 			<%= f.radio_button :bookings, flights.id %>
+ 			<%= f.label :bookings, "From #{flights.start.name} to #{flights.finish.name} - #{flights.start_time}" %></br>
+
+ 		<% end %>
+ 		<%= f.hidden_field :passengers, value: @passengers %>
+ 		<%= f.submit "Book Flight" %>
+ 	<% end %>
+ <% end %>
+ </form>
+
+

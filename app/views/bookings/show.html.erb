@@ -1,0 +1,14 @@
+<h2>Booking Successful!</h2>
+<p>Flight id: <%= @flight.id %></p>
+<p>Departure:  <%= @flight.start.name %><p>
+<p>Arrival: <%= @flight.finish.name %><p>
+<p>Date: <%= @flight.start_time %></p></vr>
+<h2>Passenger Info:</h2>
+<% @booking.passengers.each do |passenger| %>
+
+	<p>Name:   <%= passenger.name %></p>   
+	<p>Email:   <%= passenger.email %></p></br>
+
+<% end %>
+
+<%= link_to 'Home', root_path %>

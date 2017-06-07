@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>You Flight Booking Has Been Set!</h1>
+    <p>
+      You have successfully booked your flight <%= @passenger.name %>. You can view your flight information here:
+    </p><br>
+
+    <%= link_to "Booking Info", booking_show_url(@passenger.bookings.last) %></br>
+
+    <p>Thanks for using Odin Flight Booker!</p>
+  </body>
+</html>

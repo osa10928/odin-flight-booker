@@ -1,0 +1,9 @@
+You Flight Booking Has Been Set!
+================================
+      
+
+You have successfully booked your flight <%= @passenger.name %>. You can view your flight information here:
+
+<%= link_to "Booking Info", booking_show_url(@passenger.bookings.last) %>
+
+Thanks for using Odin Flight Booker!

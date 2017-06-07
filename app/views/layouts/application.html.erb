@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OdinFlightBooker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<header class="text-center" id="title">
+  		<h1 class="display-1" style="color:white">ODIN FLIGHT BOOKER</h1>
+  	</header>
+
+  	<div class="container row align-items-center justify-content-center" id="main">
+    <%= yield %>
+	</div>
+  </body>
+</html>
